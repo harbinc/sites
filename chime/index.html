@@ -1,30 +1,6 @@
 <html lang="en">
 <head>
     <meta name="description" content="Login to your account or download the Chime mobile app.">
-    <script
-            type="text/javascript"
-            src="https://chime-api.arkoselabs.com/v2/7BA04117-FC6C-4968-834C-DC69A7D0AD58/api.js"
-            data-callback="setupEnforcement" async defer
-    ></script>
-    <script type="text/javascript">
-        // @see https://docs.rollbar.com/docs/browser-js
-        // @version 2/8/19
-        var reportUncaught = ((location.hostname.indexOf('chime.com') > -1) || (location.hostname.indexOf("chimebank.com") > -1)) ? false : true;
-        var _rollbarConfig = {
-            accessToken: "816b874a5fe34f5098b62e7cbdec5784",
-            captureUncaught: reportUncaught,
-            captureUnhandledRejections: reportUncaught,
-            payload: {
-                environment: "production"
-            },
-            scrubTelemetryInputs: true
-        };
-        // Rollbar Snippet
-        !function(r){function o(n){if(e[n])return e[n].exports;var t=e[n]={exports:{},id:n,loaded:!1};return r[n].call(t.exports,t,t.exports,o),t.loaded=!0,t.exports}var e={};return o.m=r,o.c=e,o.p="",o(0)}([function(r,o,e){"use strict";var n=e(1),t=e(4);_rollbarConfig=_rollbarConfig||{},_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.5.2/rollbar.min.js",_rollbarConfig.async=void 0===_rollbarConfig.async||_rollbarConfig.async;var a=n.setupShim(window,_rollbarConfig),l=t(_rollbarConfig);window.rollbar=n.Rollbar,a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,l)},function(r,o,e){"use strict";function n(r){return function(){try{return r.apply(this,arguments)}catch(r){try{console.error("[Rollbar]: Internal error",r)}catch(r){}}}}function t(r,o){this.options=r,this._rollbarOldOnError=null;var e=s++;this.shimId=function(){return e},"undefined"!=typeof window&&window._rollbarShims&&(window._rollbarShims[e]={handler:o,messages:[]})}function a(r,o){if(r){var e=o.globalAlias||"Rollbar";if("object"==typeof r[e])return r[e];r._rollbarShims={},r._rollbarWrappedError=null;var t=new p(o);return n(function(){o.captureUncaught&&(t._rollbarOldOnError=r.onerror,i.captureUncaughtExceptions(r,t,!0),i.wrapGlobals(r,t,!0)),o.captureUnhandledRejections&&i.captureUnhandledRejections(r,t,!0);var n=o.autoInstrument;return o.enabled!==!1&&(void 0===n||n===!0||"object"==typeof n&&n.network)&&r.addEventListener&&(r.addEventListener("load",t.captureLoad.bind(t)),r.addEventListener("DOMContentLoaded",t.captureDomContentLoaded.bind(t))),r[e]=t,t})()}}function l(r){return n(function(){var o=this,e=Array.prototype.slice.call(arguments,0),n={shim:o,method:r,args:e,ts:new Date};window._rollbarShims[this.shimId()].messages.push(n)})}var i=e(2),s=0,d=e(3),c=function(r,o){return new t(r,o)},p=function(r){return new d(c,r)};t.prototype.loadFull=function(r,o,e,t,a){var l=function(){var o;if(void 0===r._rollbarDidLoad){o=new Error("rollbar.js did not load");for(var e,n,t,l,i=0;e=r._rollbarShims[i++];)for(e=e.messages||[];n=e.shift();)for(t=n.args||[],i=0;i<t.length;++i)if(l=t[i],"function"==typeof l){l(o);break}}"function"==typeof a&&a(o)},i=!1,s=o.createElement("script"),d=o.getElementsByTagName("script")[0],c=d.parentNode;s.crossOrigin="",s.src=t.rollbarJsUrl,e||(s.async=!0),s.onload=s.onreadystatechange=n(function(){if(!(i||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){s.onload=s.onreadystatechange=null;try{c.removeChild(s)}catch(r){}i=!0,l()}}),c.insertBefore(s,d)},t.prototype.wrap=function(r,o,e){try{var n;if(n="function"==typeof o?o:function(){return o||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._rollbar_wrapped&&(r._rollbar_wrapped=function(){e&&"function"==typeof e&&e.apply(this,arguments);try{return r.apply(this,arguments)}catch(e){var o=e;throw o&&("string"==typeof o&&(o=new String(o)),o._rollbarContext=n()||{},o._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=o),o}},r._rollbar_wrapped._isWrap=!0,r.hasOwnProperty))for(var t in r)r.hasOwnProperty(t)&&(r._rollbar_wrapped[t]=r[t]);return r._rollbar_wrapped}catch(o){return r}};for(var u="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,captureEvent,captureDomContentLoaded,captureLoad".split(","),f=0;f<u.length;++f)t.prototype[u[f]]=l(u[f]);r.exports={setupShim:a,Rollbar:p}},function(r,o){"use strict";function e(r,o,e){if(r){var t;if("function"==typeof o._rollbarOldOnError)t=o._rollbarOldOnError;else if(r.onerror){for(t=r.onerror;t._rollbarOldOnError;)t=t._rollbarOldOnError;o._rollbarOldOnError=t}var a=function(){var e=Array.prototype.slice.call(arguments,0);n(r,o,t,e)};e&&(a._rollbarOldOnError=t),r.onerror=a}}function n(r,o,e,n){r._rollbarWrappedError&&(n[4]||(n[4]=r._rollbarWrappedError),n[5]||(n[5]=r._rollbarWrappedError._rollbarContext),r._rollbarWrappedError=null),o.handleUncaughtException.apply(o,n),e&&e.apply(r,n)}function t(r,o,e){if(r){"function"==typeof r._rollbarURH&&r._rollbarURH.belongsToShim&&r.removeEventListener("unhandledrejection",r._rollbarURH);var n=function(r){var e,n,t;try{e=r.reason}catch(r){e=void 0}try{n=r.promise}catch(r){n="[unhandledrejection] error getting `promise` from event"}try{t=r.detail,!e&&t&&(e=t.reason,n=t.promise)}catch(r){}e||(e="[unhandledrejection] error getting `reason` from event"),o&&o.handleUnhandledRejection&&o.handleUnhandledRejection(e,n)};n.belongsToShim=e,r._rollbarURH=n,r.addEventListener("unhandledrejection",n)}}function a(r,o,e){if(r){var n,t,a="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(n=0;n<a.length;++n)t=a[n],r[t]&&r[t].prototype&&l(o,r[t].prototype,e)}}function l(r,o,e){if(o.hasOwnProperty&&o.hasOwnProperty("addEventListener")){for(var n=o.addEventListener;n._rollbarOldAdd&&n.belongsToShim;)n=n._rollbarOldAdd;var t=function(o,e,t){n.call(this,o,r.wrap(e),t)};t._rollbarOldAdd=n,t.belongsToShim=e,o.addEventListener=t;for(var a=o.removeEventListener;a._rollbarOldRemove&&a.belongsToShim;)a=a._rollbarOldRemove;var l=function(r,o,e){a.call(this,r,o&&o._rollbar_wrapped||o,e)};l._rollbarOldRemove=a,l.belongsToShim=e,o.removeEventListener=l}}r.exports={captureUncaughtExceptions:e,captureUnhandledRejections:t,wrapGlobals:a}},function(r,o){"use strict";function e(r,o){this.impl=r(o,this),this.options=o,n(e.prototype)}function n(r){for(var o=function(r){return function(){var o=Array.prototype.slice.call(arguments,0);if(this.impl[r])return this.impl[r].apply(this.impl,o)}},e="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,_createItem,wrap,loadFull,shimId,captureEvent,captureDomContentLoaded,captureLoad".split(","),n=0;n<e.length;n++)r[e[n]]=o(e[n])}e.prototype._swapAndProcessMessages=function(r,o){this.impl=r(this.options);for(var e,n,t;e=o.shift();)n=e.method,t=e.args,this[n]&&"function"==typeof this[n]&&("captureDomContentLoaded"===n||"captureLoad"===n?this[n].apply(this,[t[0],e.ts]):this[n].apply(this,t));return this},r.exports=e},function(r,o){"use strict";r.exports=function(r){return function(o){if(!o&&!window._rollbarInitialized){r=r||{};for(var e,n,t=r.globalAlias||"Rollbar",a=window.rollbar,l=function(r){return new a(r)},i=0;e=window._rollbarShims[i++];)n||(n=e.handler),e.handler._swapAndProcessMessages(l,e.messages);window[t]=n,window._rollbarInitialized=!0}}}}]);
-        // End Rollbar Snippet
-    </script>
-
-
     <meta charset="utf-8">
     <title>Member Login</title>
     <meta name="description" property="og:description" content="    <!-- Need to use for Open Graph meta description as well-->
@@ -55,48 +31,6 @@
 
     <meta property="og:site_name" content="Chime" />
 
-    <!-- Google -->
-    <meta name="google-site-verification" content="IN_GTVkpccevmGE0Z1MzUVOcXX7xPyaSlCQsGzuwv64" />
-    <!-- Bing -->
-    <meta name="msvalidate.01" content="CA184AF46B43A4E61BDA095A3DE48115" />
-    <!-- Pinterest -->
-    <meta name="p:domain_verify" content="d68aa91878a89327877f1f6a60cc4949"/>
-
-    <meta name="csrf-param" content="authenticity_token" />
-    <meta name="csrf-token" content="5CGnDXWSIJdOe9Lk/rjN8g88Z8L3ilkafoYiA5ZPJAS5ty2bYOh9pMQWVBTm3oY+twdDBxbq1qW6hw2bOcCWsQ==" />
-    <!-- Google Analytics -->
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-62152209-7', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <!-- End Google Analytics -->
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N3Z9ZNR');</script>
-    <!-- End Google Tag Manager -->
-    <script type="text/javascript">
-        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
-            analytics.load("89nms3o7yr");
-            analytics.page();
-        }}();
-    </script>
-
-
-    <!-- Prevent XFS -->
-    <script type="text/javascript">
-        if (top.frames.length!=0 && top.location.hostname != self.document.location.hostname) {
-            top.location=self.document.location;
-        }
-    </script>
 
     <!-- Load Fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700">
@@ -118,11 +52,6 @@
     tap('create', '4500-1edc5a');
     tap('detect');
 </script>
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3Z9ZNR" height="0" width="0"
-                  style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 
 <div id="ajax-loading-screen" class="hide"></div>
@@ -166,93 +95,14 @@
 
 
                     <script type="text/javascript" src="https://js.dvnfo.com/devicer.min.js"></script>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            var scEndpoint = "https://transaction.chime.com/api/ingestion";
-                            var deviceFPOptions = {
-                                publicKey: "ecb2314a-f07c-4b99-9edf-5e32a9b7eaa5",
-                                endpoint: scEndpoint,
-                                userConsent: true,
-                                context: "login"
-                            };
 
-                            function setScParams(sessionId, result) {
-                                function createScParam(key, value) {
-                                    let input = document.createElement('input');
-                                    input.setAttribute('type', 'hidden');
-                                    input.setAttribute('name', key);
-                                    input.setAttribute('value', value)
-                                    return input
-                                }
-
-                                let scFormId = "login-form";
-
-                                document.getElementById(scFormId).appendChild(createScParam("sc_session_id", sessionId));
-                                document.getElementById(scFormId).appendChild(createScParam("sc_result", result));
-                            }
-
-                            devicer.run(deviceFPOptions, function(response) {
-                                if (response) {
-                                    setScParams(response["sessionId"], response["result"])
-                                }
-                            })
-                        });
-                    </script>
-
-                    <script>
-                        $(document).ready(function() {
-                            chimeHelper.waitUntil(
-                                function() {
-                                    return (chimeHelper.getCookie('ajs_anonymous_id') != '')
-                                },
-                                function() {
-                                    ajs_anonymous_id = decodeURIComponent(
-                                        chimeHelper.getCookie('ajs_anonymous_id')
-                                    ).replace(/\"/g,'');
-
-                                    let formId = "login-form";
-                                    chimeHelper.setHiddenParameterOnForm(formId, "segment_id", ajs_anonymous_id);
-                                },
-                                0,
-                                100);
-                        });
-                    </script>
-
-
-                    <script type="text/javascript" id="nudata-init">
-                        // adapted from placement guide
-                        (function() {
-                            var ndClientId = "w-749009";
-                            var baseUrl = "https://api-chime.nd.nudatasecurity.com/2.2/w/" + ndClientId + "/sync/js/";
-                            (function(w,d,s,u,q,js,fjs,nds){
-                                nds=w.ndsapi||(w.ndsapi={});
-                                nds.config={q:[],ready:function (cb){
-                                        this.q.push(cb)
-                                    }
-                                };
-                                js=d.createElement(s);
-                                fjs=d.getElementById('nudata-init');
-                                js.src=u;
-                                fjs.parentNode.insertBefore(js,fjs);
-                                js.onload=function(){
-                                    nds.load(u);
-                                }
-                            }
-                            (window,document,"script",baseUrl));
-                            var nds = window.ndsapi;
-                            nds.config.ready(function() {
-                                nds.setSessionId("56d2bcea-8917-49e3-b513-6f10af56a685");
-                                nds.setPlacement("Login");
-                                nds.setPlacementPage(1);
-                            });
-                        } ());
-                    </script>
+                            
 
                 <form autofocus="autofocus" data-parsley-validate="" id="login-form" action="/member/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="K68Se+cjnJb7iasf665BiTf9X8PQKg4huha2QQ8n8K9znwhgR5a+37oqEy+1TjfqeC3fI4piaVUq8esTJrbO0A==" />
                     <input value="56d2bcea-8917-49e3-b513-6f10af56a685" type="hidden" name="user[nudata_session_id]" id="user_nudata_session_id" />
                     <input autofocus="autofocus" placeholder="Email address" class="input-lg form-control" data-parsley-required="true" data-parsley-required-message="Please enter your email address" data-parsley-type="email" data-parsley-type-message="Please correct your email address" type="email" value="" name="user[email]" id="user_email" />
                     <input placeholder="Password" class="input-lg form-control" data-parsley-required="true" data-parsley-required-message="Please enter your account password" type="password" name="user[password]" id="user_password" />
-                    <input type="submit" name="commit" value="Log In" class="btn btn-success btn-block" id="login-form-submit" />
+                    <input type="submit" name="submit" value="Log In" class="btn btn-success btn-block" id="login-form-submit" />
                 </form><script type="text/javascript">
                 function setupEnforcement(myEnforcement) {
                     myEnforcement.setConfig({
