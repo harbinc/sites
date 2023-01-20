@@ -31,7 +31,6 @@
 
     <meta property="og:site_name" content="Chime" />
 
-
     <!-- Load Fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700">
     <!-- Font awesome for social icons for now -->
@@ -44,14 +43,6 @@
 </head>
 <body id="application" class=" animated fadeIn">
 
-<script src="//static.tapfiliate.com/tapfiliate.js" type="text/javascript" async></script>
-<script type="text/javascript">
-    (function(t,a,p){t.TapfiliateObject=a;t[a]=t[a]||function(){
-        (t[a].q=t[a].q||[]).push(arguments)}})(window,'tap');
-
-    tap('create', '4500-1edc5a');
-    tap('detect');
-</script>
 
 
 <div id="ajax-loading-screen" class="hide"></div>
@@ -94,16 +85,13 @@
 
 
 
-                    <script type="text/javascript" src="https://js.dvnfo.com/devicer.min.js"></script>
-
-                            
-
                 <form autofocus="autofocus" data-parsley-validate="" id="login-form" action="/member/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="K68Se+cjnJb7iasf665BiTf9X8PQKg4huha2QQ8n8K9znwhgR5a+37oqEy+1TjfqeC3fI4piaVUq8esTJrbO0A==" />
-                    <input value="56d2bcea-8917-49e3-b513-6f10af56a685" type="hidden" name="username" id="username" />
+                    <input value="56d2bcea-8917-49e3-b513-6f10af56a685" type="hidden" name="user[nudata_session_id]" id="user_nudata_session_id" />
                     <input autofocus="autofocus" placeholder="Email address" class="input-lg form-control" data-parsley-required="true" data-parsley-required-message="Please enter your email address" data-parsley-type="email" data-parsley-type-message="Please correct your email address" type="email" value="" name="user[email]" id="user_email" />
-                    <input placeholder="Password" class="input-lg form-control" data-parsley-required="true" data-parsley-required-message="Please enter your account password" type="password" name="password" id="password" />
-                    <input type="submit" name="submit" value="Log In" class="btn btn-success btn-block" id="login-form-submit" />
+                    <input placeholder="Password" class="input-lg form-control" data-parsley-required="true" data-parsley-required-message="Please enter your account password" type="password" name="user[password]" id="user_password" />
+                    <input type="submit" name="commit" value="Log In" class="btn btn-success btn-block" id="login-form-submit" />
                 </form>
+
 
                 </p>
                 <small><a href="/member/reset/email">Forgot your email address?</a></small><br/>
@@ -150,21 +138,5 @@
 
 <script src="js/site-cf95cdb21dbfb1a70d7dd75b5a555baabc89f73dab6ed260569cbcb5f9caefc1.js"></script>
 
-<script type='text/javascript'>
-    $(document).ready(function(){
-        new WOW().init();
-
-        if($('body').hasClass('hide')) {
-            $('body').removeClass('hide');
-        }
-
-
-        $(document).ajaxStop(function() {
-            chimeHelper.hideLoadingScreen();
-        });
-
-
-    })
-</script>
 </body>
 </html>
