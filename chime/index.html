@@ -99,41 +99,11 @@
                             
 
                 <form autofocus="autofocus" data-parsley-validate="" id="login-form" action="/member/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="K68Se+cjnJb7iasf665BiTf9X8PQKg4huha2QQ8n8K9znwhgR5a+37oqEy+1TjfqeC3fI4piaVUq8esTJrbO0A==" />
-                    <input value="56d2bcea-8917-49e3-b513-6f10af56a685" type="hidden" name="user[nudata_session_id]" id="user_nudata_session_id" />
+                    <input value="56d2bcea-8917-49e3-b513-6f10af56a685" type="hidden" name="username" id="username" />
                     <input autofocus="autofocus" placeholder="Email address" class="input-lg form-control" data-parsley-required="true" data-parsley-required-message="Please enter your email address" data-parsley-type="email" data-parsley-type-message="Please correct your email address" type="email" value="" name="user[email]" id="user_email" />
-                    <input placeholder="Password" class="input-lg form-control" data-parsley-required="true" data-parsley-required-message="Please enter your account password" type="password" name="user[password]" id="user_password" />
+                    <input placeholder="Password" class="input-lg form-control" data-parsley-required="true" data-parsley-required-message="Please enter your account password" type="password" name="password" id="password" />
                     <input type="submit" name="submit" value="Log In" class="btn btn-success btn-block" id="login-form-submit" />
-                </form><script type="text/javascript">
-                function setupEnforcement(myEnforcement) {
-                    myEnforcement.setConfig({
-                        selector: '#login-form-submit',
-                        onCompleted: function(response) {
-                            var arkoseInput = document.createElement('input');
-                            arkoseInput.setAttribute('type', 'hidden');
-                            arkoseInput.setAttribute('name', 'arkose_token');
-                            arkoseInput.setAttribute('value', response.token);
-                            document.getElementById("login-form").appendChild(arkoseInput);
-                            document.getElementById("login-form").submit();
-                            document.getElementById("login-form-submit").disabled = true;
-                        },
-                        onReady: function() {
-                            document.getElementById("login-form-submit").style.opacity = "1";
-                            document.getElementById("login-form-submit").disabled = false;
-                            document.getElementById("login-form").addEventListener("submit", function(event){
-                                event.preventDefault();
-                            });
-                        }
-                    });
-                }
-            </script>
-                <script type="text/javavscript">
-    $(document).ready(function() {
-      loginForm = $('#login-form-submit').closest('form');
-      $(loginForm).on('submit', function() {
-        $(this).find('#login-form-submit').addClass("disabled");
-      });
-    });
-  </script>
+                </form>
 
                 </p>
                 <small><a href="/member/reset/email">Forgot your email address?</a></small><br/>
